@@ -1,0 +1,1 @@
+#include "Solitario.h"
