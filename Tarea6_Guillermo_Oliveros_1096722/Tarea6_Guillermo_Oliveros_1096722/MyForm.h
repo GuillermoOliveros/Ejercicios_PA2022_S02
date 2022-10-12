@@ -1,4 +1,6 @@
 #pragma once
+#include "iostream"
+#include "string"
 #include "Pokedex2.h"
 
 
@@ -157,6 +159,7 @@ namespace Tarea6GuillermoOliveros1096722 {
 			this->btnAgregarPokemon->TabIndex = 5;
 			this->btnAgregarPokemon->Text = L"Agregar Pokemon";
 			this->btnAgregarPokemon->UseVisualStyleBackColor = true;
+			this->btnAgregarPokemon->Click += gcnew System::EventHandler(this, &MyForm::btnAgregarPokemon_Click);
 			// 
 			// btnNationalNumber
 			// 
@@ -355,5 +358,11 @@ namespace Tarea6GuillermoOliveros1096722 {
 		MyForm:Form::Hide();
 		Pokedex2:Form::Show();
 	}
+private: System::Void btnAgregarPokemon_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	String^ Pokemon = txtDatosObtenidos->Text;
+
+	txtDatosObtenidos->Clear();
+}
 };
 }
