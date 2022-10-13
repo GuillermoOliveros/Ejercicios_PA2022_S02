@@ -144,6 +144,15 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Dificil.resx">
+      <DependentUpon>Dificil.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facil.resx">
+      <DependentUpon>Facil.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Medio.resx">
+      <DependentUpon>Medio.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>

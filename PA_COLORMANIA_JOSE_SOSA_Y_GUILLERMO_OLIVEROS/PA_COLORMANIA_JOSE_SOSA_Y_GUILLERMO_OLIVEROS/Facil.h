@@ -34,6 +34,8 @@ namespace PACOLORMANIAJOSESOSAYGUILLERMOOLIVEROS {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Label^ label1;
+	protected:
 
 	private:
 		/// <summary>
@@ -48,11 +50,30 @@ namespace PACOLORMANIAJOSESOSAYGUILLERMOOLIVEROS {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"Facil";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->SuspendLayout();
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(277, 144);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(95, 13);
+			this->label1->TabIndex = 0;
+			this->label1->Text = L"como tu mama jeje";
+			// 
+			// Facil
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(657, 337);
+			this->Controls->Add(this->label1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			this->Name = L"Facil";
+			this->Text = L"Facil";
+			this->ResumeLayout(false);
+			this->PerformLayout();
+
 		}
 #pragma endregion
 	};
