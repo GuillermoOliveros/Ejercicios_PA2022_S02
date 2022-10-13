@@ -120,12 +120,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ArchivoTxt.cpp" />
+    <ClCompile Include="Color.cpp" />
+    <ClCompile Include="Dificil.cpp" />
+    <ClCompile Include="Facil.cpp" />
+    <ClCompile Include="Medio.cpp" />
     <ClCompile Include="MyForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArchivoTxt.h" />
+    <ClInclude Include="Color.h" />
+    <ClInclude Include="Dificil.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Facil.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Medio.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MyForm.resx">
+      <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
