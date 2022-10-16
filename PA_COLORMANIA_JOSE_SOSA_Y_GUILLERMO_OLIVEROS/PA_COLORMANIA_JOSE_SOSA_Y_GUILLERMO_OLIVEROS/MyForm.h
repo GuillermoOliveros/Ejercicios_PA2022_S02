@@ -9,6 +9,7 @@
 #include "Medio.h"
 #include "Facil.h"
 
+
 using namespace std;
 
 namespace PACOLORMANIAJOSESOSAYGUILLERMOOLIVEROS {
@@ -251,6 +252,7 @@ namespace PACOLORMANIAJOSESOSAYGUILLERMOOLIVEROS {
 
 		}
 
+		
 
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {

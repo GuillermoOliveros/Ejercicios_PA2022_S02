@@ -2,6 +2,7 @@
 #include "iostream"
 #include "string"
 #include "Pokedex2.h"
+#include "Pokemon.h"
 
 
 namespace Tarea6GuillermoOliveros1096722 {
@@ -41,7 +42,8 @@ namespace Tarea6GuillermoOliveros1096722 {
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	protected:
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
-	private: System::Windows::Forms::TextBox^ txtDatosObtenidos;
+	private: System::Windows::Forms::TextBox^ txtDatoNumero;
+
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
 	private: System::Windows::Forms::Label^ lblInfo;
 	private: System::Windows::Forms::Button^ btnAgregarPokemon;
@@ -60,6 +62,10 @@ namespace Tarea6GuillermoOliveros1096722 {
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::Label^ label11;
 	private: System::Windows::Forms::Button^ btnSiguientePag;
+	private: System::Windows::Forms::TextBox^ txtDatoNombre;
+	private: System::Windows::Forms::TextBox^ txtDatoGeneracion;
+	private: System::Windows::Forms::Label^ label12;
+	private: System::Windows::Forms::Label^ label13;
 
 	protected:
 
@@ -80,7 +86,7 @@ namespace Tarea6GuillermoOliveros1096722 {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
-			this->txtDatosObtenidos = (gcnew System::Windows::Forms::TextBox());
+			this->txtDatoNumero = (gcnew System::Windows::Forms::TextBox());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->lblInfo = (gcnew System::Windows::Forms::Label());
 			this->btnAgregarPokemon = (gcnew System::Windows::Forms::Button());
@@ -99,6 +105,10 @@ namespace Tarea6GuillermoOliveros1096722 {
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->btnSiguientePag = (gcnew System::Windows::Forms::Button());
+			this->txtDatoNombre = (gcnew System::Windows::Forms::TextBox());
+			this->txtDatoGeneracion = (gcnew System::Windows::Forms::TextBox());
+			this->label12 = (gcnew System::Windows::Forms::Label());
+			this->label13 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -124,19 +134,19 @@ namespace Tarea6GuillermoOliveros1096722 {
 			this->pictureBox2->TabIndex = 1;
 			this->pictureBox2->TabStop = false;
 			// 
-			// txtDatosObtenidos
+			// txtDatoNumero
 			// 
-			this->txtDatosObtenidos->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->txtDatosObtenidos->Location = System::Drawing::Point(51, 169);
-			this->txtDatosObtenidos->Name = L"txtDatosObtenidos";
-			this->txtDatosObtenidos->Size = System::Drawing::Size(271, 20);
-			this->txtDatosObtenidos->TabIndex = 2;
+			this->txtDatoNumero->BackColor = System::Drawing::SystemColors::InactiveCaption;
+			this->txtDatoNumero->Location = System::Drawing::Point(51, 169);
+			this->txtDatoNumero->Name = L"txtDatoNumero";
+			this->txtDatoNumero->Size = System::Drawing::Size(75, 20);
+			this->txtDatoNumero->TabIndex = 2;
 			// 
 			// pictureBox3
 			// 
 			this->pictureBox3->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->pictureBox3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.BackgroundImage")));
-			this->pictureBox3->Location = System::Drawing::Point(67, 100);
+			this->pictureBox3->Location = System::Drawing::Point(76, 100);
 			this->pictureBox3->Name = L"pictureBox3";
 			this->pictureBox3->Size = System::Drawing::Size(228, 35);
 			this->pictureBox3->TabIndex = 3;
@@ -145,11 +155,11 @@ namespace Tarea6GuillermoOliveros1096722 {
 			// lblInfo
 			// 
 			this->lblInfo->AutoSize = true;
-			this->lblInfo->Location = System::Drawing::Point(37, 192);
+			this->lblInfo->Location = System::Drawing::Point(64, 192);
 			this->lblInfo->Name = L"lblInfo";
-			this->lblInfo->Size = System::Drawing::Size(296, 13);
+			this->lblInfo->Size = System::Drawing::Size(47, 13);
 			this->lblInfo->TabIndex = 4;
-			this->lblInfo->Text = L"Separa por comas lo siguiente: Numero, Nombre, Generación";
+			this->lblInfo->Text = L" Numero";
 			// 
 			// btnAgregarPokemon
 			// 
@@ -310,11 +320,49 @@ namespace Tarea6GuillermoOliveros1096722 {
 			this->btnSiguientePag->UseVisualStyleBackColor = true;
 			this->btnSiguientePag->Click += gcnew System::EventHandler(this, &MyForm::btnSiguientePag_Click);
 			// 
+			// txtDatoNombre
+			// 
+			this->txtDatoNombre->BackColor = System::Drawing::SystemColors::InactiveCaption;
+			this->txtDatoNombre->Location = System::Drawing::Point(148, 169);
+			this->txtDatoNombre->Name = L"txtDatoNombre";
+			this->txtDatoNombre->Size = System::Drawing::Size(75, 20);
+			this->txtDatoNombre->TabIndex = 22;
+			// 
+			// txtDatoGeneracion
+			// 
+			this->txtDatoGeneracion->BackColor = System::Drawing::SystemColors::InactiveCaption;
+			this->txtDatoGeneracion->Location = System::Drawing::Point(246, 169);
+			this->txtDatoGeneracion->Name = L"txtDatoGeneracion";
+			this->txtDatoGeneracion->Size = System::Drawing::Size(87, 20);
+			this->txtDatoGeneracion->TabIndex = 23;
+			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->Location = System::Drawing::Point(160, 192);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(44, 13);
+			this->label12->TabIndex = 24;
+			this->label12->Text = L"Nombre";
+			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->Location = System::Drawing::Point(259, 192);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(62, 13);
+			this->label13->TabIndex = 25;
+			this->label13->Text = L"Generación";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(788, 378);
+			this->Controls->Add(this->label13);
+			this->Controls->Add(this->label12);
+			this->Controls->Add(this->txtDatoGeneracion);
+			this->Controls->Add(this->txtDatoNombre);
 			this->Controls->Add(this->btnSiguientePag);
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label10);
@@ -333,7 +381,7 @@ namespace Tarea6GuillermoOliveros1096722 {
 			this->Controls->Add(this->btnAgregarPokemon);
 			this->Controls->Add(this->lblInfo);
 			this->Controls->Add(this->pictureBox3);
-			this->Controls->Add(this->txtDatosObtenidos);
+			this->Controls->Add(this->txtDatoNumero);
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->pictureBox1);
 			this->Name = L"MyForm";
@@ -347,7 +395,13 @@ namespace Tarea6GuillermoOliveros1096722 {
 
 		}
 #pragma endregion
+		void AgregarPokemon()
+		{
+			int pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6, pokemon7, pokemon8;
 
+
+		}
+		
 	
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -360,9 +414,19 @@ namespace Tarea6GuillermoOliveros1096722 {
 	}
 private: System::Void btnAgregarPokemon_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	String^ Pokemon = txtDatosObtenidos->Text;
+	String^ Pokemon_Nombre = txtDatoNombre->Text;
+	String^ Pokemon_Numero = txtDatoNumero->Text;
+	String^ Pokemon_Generacion = txtDatoGeneracion->Text;
 
-	txtDatosObtenidos->Clear();
+	ToInt16()
+
+	 pokemon1 = gcnew Pokemon(Pokemon_Numero, Pokemon_Generacion, Pokemon_Nombre );
+	
+	txtDatoGeneracion->Clear();
+	txtDatoNumero->Clear();
+	txtDatoNombre->Clear();
+
+	
 }
 };
 }
