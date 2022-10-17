@@ -1,9 +1,19 @@
 #pragma once
 #include "iostream"
 #include "string"
-#include "Pokedex2.h"
 #include "Pokemon.h"
+#include "Leer.h"
+#include "ordenamiento.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <Windows.h>
+#include <conio.h>
+#include <ctime>
 
+Pokemon ListadoPokemon;
+ordenamiento OrdenPokemon;
+Leer LeerArchivo;
 
 namespace Tarea6GuillermoOliveros1096722 {
 
@@ -42,30 +52,49 @@ namespace Tarea6GuillermoOliveros1096722 {
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	protected:
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
-	private: System::Windows::Forms::TextBox^ txtDatoNumero;
+
 
 	private: System::Windows::Forms::PictureBox^ pictureBox3;
-	private: System::Windows::Forms::Label^ lblInfo;
+
 	private: System::Windows::Forms::Button^ btnAgregarPokemon;
-	private: System::Windows::Forms::Button^ btnNationalNumber;
-	private: System::Windows::Forms::Button^ btnGeneración;
-	private: System::Windows::Forms::Label^ lbl1;
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Button^ btnNumeroShell;
+	private: System::Windows::Forms::Button^ btnNumeroSelection;
+
+
+
+
+	private: System::Windows::Forms::OpenFileDialog^ ofdPokemon;
+
+	private: System::Windows::Forms::TextBox^ txtPokedex;
+	private: System::Windows::Forms::Button^ btnNumeroQuick;
+	private: System::Windows::Forms::Button^ btnGeneracionShell;
+	private: System::Windows::Forms::Button^ btnGeneracionSelection;
+	private: System::Windows::Forms::Button^ btnGeneracionQuick;
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::Label^ label7;
-	private: System::Windows::Forms::Label^ label8;
-	private: System::Windows::Forms::Label^ label9;
-	private: System::Windows::Forms::Label^ label10;
-	private: System::Windows::Forms::Label^ label11;
-	private: System::Windows::Forms::Button^ btnSiguientePag;
-	private: System::Windows::Forms::TextBox^ txtDatoNombre;
-	private: System::Windows::Forms::TextBox^ txtDatoGeneracion;
-	private: System::Windows::Forms::Label^ label12;
-	private: System::Windows::Forms::Label^ label13;
+	private: System::Windows::Forms::Label^ label2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	protected:
 
@@ -74,7 +103,7 @@ namespace Tarea6GuillermoOliveros1096722 {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -86,29 +115,18 @@ namespace Tarea6GuillermoOliveros1096722 {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
-			this->txtDatoNumero = (gcnew System::Windows::Forms::TextBox());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
-			this->lblInfo = (gcnew System::Windows::Forms::Label());
 			this->btnAgregarPokemon = (gcnew System::Windows::Forms::Button());
-			this->btnNationalNumber = (gcnew System::Windows::Forms::Button());
-			this->btnGeneración = (gcnew System::Windows::Forms::Button());
-			this->lbl1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->btnNumeroShell = (gcnew System::Windows::Forms::Button());
+			this->btnNumeroSelection = (gcnew System::Windows::Forms::Button());
+			this->ofdPokemon = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->txtPokedex = (gcnew System::Windows::Forms::TextBox());
+			this->btnNumeroQuick = (gcnew System::Windows::Forms::Button());
+			this->btnGeneracionShell = (gcnew System::Windows::Forms::Button());
+			this->btnGeneracionSelection = (gcnew System::Windows::Forms::Button());
+			this->btnGeneracionQuick = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->label9 = (gcnew System::Windows::Forms::Label());
-			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->label11 = (gcnew System::Windows::Forms::Label());
-			this->btnSiguientePag = (gcnew System::Windows::Forms::Button());
-			this->txtDatoNombre = (gcnew System::Windows::Forms::TextBox());
-			this->txtDatoGeneracion = (gcnew System::Windows::Forms::TextBox());
-			this->label12 = (gcnew System::Windows::Forms::Label());
-			this->label13 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -134,14 +152,6 @@ namespace Tarea6GuillermoOliveros1096722 {
 			this->pictureBox2->TabIndex = 1;
 			this->pictureBox2->TabStop = false;
 			// 
-			// txtDatoNumero
-			// 
-			this->txtDatoNumero->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->txtDatoNumero->Location = System::Drawing::Point(51, 169);
-			this->txtDatoNumero->Name = L"txtDatoNumero";
-			this->txtDatoNumero->Size = System::Drawing::Size(75, 20);
-			this->txtDatoNumero->TabIndex = 2;
-			// 
 			// pictureBox3
 			// 
 			this->pictureBox3->BackColor = System::Drawing::SystemColors::ControlLightLight;
@@ -152,18 +162,9 @@ namespace Tarea6GuillermoOliveros1096722 {
 			this->pictureBox3->TabIndex = 3;
 			this->pictureBox3->TabStop = false;
 			// 
-			// lblInfo
-			// 
-			this->lblInfo->AutoSize = true;
-			this->lblInfo->Location = System::Drawing::Point(64, 192);
-			this->lblInfo->Name = L"lblInfo";
-			this->lblInfo->Size = System::Drawing::Size(47, 13);
-			this->lblInfo->TabIndex = 4;
-			this->lblInfo->Text = L" Numero";
-			// 
 			// btnAgregarPokemon
 			// 
-			this->btnAgregarPokemon->Location = System::Drawing::Point(124, 219);
+			this->btnAgregarPokemon->Location = System::Drawing::Point(133, 141);
 			this->btnAgregarPokemon->Name = L"btnAgregarPokemon";
 			this->btnAgregarPokemon->Size = System::Drawing::Size(117, 23);
 			this->btnAgregarPokemon->TabIndex = 5;
@@ -171,222 +172,113 @@ namespace Tarea6GuillermoOliveros1096722 {
 			this->btnAgregarPokemon->UseVisualStyleBackColor = true;
 			this->btnAgregarPokemon->Click += gcnew System::EventHandler(this, &MyForm::btnAgregarPokemon_Click);
 			// 
-			// btnNationalNumber
+			// btnNumeroShell
 			// 
-			this->btnNationalNumber->Location = System::Drawing::Point(594, 294);
-			this->btnNationalNumber->Name = L"btnNationalNumber";
-			this->btnNationalNumber->Size = System::Drawing::Size(168, 23);
-			this->btnNationalNumber->TabIndex = 7;
-			this->btnNationalNumber->Text = L"Ordenar por National Number";
-			this->btnNationalNumber->UseVisualStyleBackColor = true;
+			this->btnNumeroShell->Location = System::Drawing::Point(29, 186);
+			this->btnNumeroShell->Name = L"btnNumeroShell";
+			this->btnNumeroShell->Size = System::Drawing::Size(129, 21);
+			this->btnNumeroShell->TabIndex = 7;
+			this->btnNumeroShell->Text = L"Shell Sort";
+			this->btnNumeroShell->UseVisualStyleBackColor = true;
+			this->btnNumeroShell->Click += gcnew System::EventHandler(this, &MyForm::btnNationalNumber_Click);
 			// 
-			// btnGeneración
+			// btnNumeroSelection
 			// 
-			this->btnGeneración->Location = System::Drawing::Point(433, 294);
-			this->btnGeneración->Name = L"btnGeneración";
-			this->btnGeneración->Size = System::Drawing::Size(155, 23);
-			this->btnGeneración->TabIndex = 8;
-			this->btnGeneración->Text = L"Ordenar por generación";
-			this->btnGeneración->UseVisualStyleBackColor = true;
+			this->btnNumeroSelection->Location = System::Drawing::Point(29, 213);
+			this->btnNumeroSelection->Name = L"btnNumeroSelection";
+			this->btnNumeroSelection->Size = System::Drawing::Size(129, 21);
+			this->btnNumeroSelection->TabIndex = 8;
+			this->btnNumeroSelection->Text = L"Selection Sort";
+			this->btnNumeroSelection->UseVisualStyleBackColor = true;
+			this->btnNumeroSelection->Click += gcnew System::EventHandler(this, &MyForm::btnGeneración_Click);
 			// 
-			// lbl1
+			// ofdPokemon
 			// 
-			this->lbl1->AutoSize = true;
-			this->lbl1->BackColor = System::Drawing::Color::GreenYellow;
-			this->lbl1->Location = System::Drawing::Point(454, 100);
-			this->lbl1->Name = L"lbl1";
-			this->lbl1->Size = System::Drawing::Size(13, 13);
-			this->lbl1->TabIndex = 9;
-			this->lbl1->Text = L"- ";
+			this->ofdPokemon->FileName = L"ListadoPokemon.txt";
 			// 
-			// label2
+			// txtPokedex
 			// 
-			this->label2->AutoSize = true;
-			this->label2->BackColor = System::Drawing::Color::GreenYellow;
-			this->label2->ForeColor = System::Drawing::Color::Black;
-			this->label2->Location = System::Drawing::Point(454, 132);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(10, 13);
-			this->label2->TabIndex = 10;
-			this->label2->Text = L"-";
+			this->txtPokedex->BackColor = System::Drawing::Color::Lime;
+			this->txtPokedex->Location = System::Drawing::Point(451, 88);
+			this->txtPokedex->Name = L"txtPokedex";
+			this->txtPokedex->Size = System::Drawing::Size(290, 20);
+			this->txtPokedex->TabIndex = 9;
 			// 
-			// label3
+			// btnNumeroQuick
 			// 
-			this->label3->AutoSize = true;
-			this->label3->BackColor = System::Drawing::Color::GreenYellow;
-			this->label3->Location = System::Drawing::Point(454, 169);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(10, 13);
-			this->label3->TabIndex = 11;
-			this->label3->Text = L"-";
+			this->btnNumeroQuick->Location = System::Drawing::Point(29, 240);
+			this->btnNumeroQuick->Name = L"btnNumeroQuick";
+			this->btnNumeroQuick->Size = System::Drawing::Size(129, 23);
+			this->btnNumeroQuick->TabIndex = 10;
+			this->btnNumeroQuick->Text = L"Quick Sort";
+			this->btnNumeroQuick->UseVisualStyleBackColor = true;
+			this->btnNumeroQuick->Click += gcnew System::EventHandler(this, &MyForm::btnNumeroQuick_Click);
+			// 
+			// btnGeneracionShell
+			// 
+			this->btnGeneracionShell->Location = System::Drawing::Point(225, 182);
+			this->btnGeneracionShell->Name = L"btnGeneracionShell";
+			this->btnGeneracionShell->Size = System::Drawing::Size(118, 23);
+			this->btnGeneracionShell->TabIndex = 12;
+			this->btnGeneracionShell->Text = L"Shell Sort";
+			this->btnGeneracionShell->UseVisualStyleBackColor = true;
+			// 
+			// btnGeneracionSelection
+			// 
+			this->btnGeneracionSelection->Location = System::Drawing::Point(225, 211);
+			this->btnGeneracionSelection->Name = L"btnGeneracionSelection";
+			this->btnGeneracionSelection->Size = System::Drawing::Size(118, 23);
+			this->btnGeneracionSelection->TabIndex = 13;
+			this->btnGeneracionSelection->Text = L"Selection Sort";
+			this->btnGeneracionSelection->UseVisualStyleBackColor = true;
+			// 
+			// btnGeneracionQuick
+			// 
+			this->btnGeneracionQuick->Location = System::Drawing::Point(225, 240);
+			this->btnGeneracionQuick->Name = L"btnGeneracionQuick";
+			this->btnGeneracionQuick->Size = System::Drawing::Size(118, 23);
+			this->btnGeneracionQuick->TabIndex = 14;
+			this->btnGeneracionQuick->Text = L"Quick Sort";
+			this->btnGeneracionQuick->UseVisualStyleBackColor = true;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::Color::GreenYellow;
-			this->label1->Location = System::Drawing::Point(454, 202);
+			this->label1->Location = System::Drawing::Point(58, 170);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(10, 13);
-			this->label1->TabIndex = 12;
-			this->label1->Text = L"-";
+			this->label1->Size = System::Drawing::Size(86, 13);
+			this->label1->TabIndex = 15;
+			this->label1->Text = L"National Number";
 			// 
-			// label4
+			// label2
 			// 
-			this->label4->AutoSize = true;
-			this->label4->BackColor = System::Drawing::Color::GreenYellow;
-			this->label4->Location = System::Drawing::Point(454, 229);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(10, 13);
-			this->label4->TabIndex = 13;
-			this->label4->Text = L"-";
-			// 
-			// label5
-			// 
-			this->label5->AutoSize = true;
-			this->label5->BackColor = System::Drawing::Color::GreenYellow;
-			this->label5->Location = System::Drawing::Point(454, 260);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(10, 13);
-			this->label5->TabIndex = 14;
-			this->label5->Text = L"-";
-			// 
-			// label6
-			// 
-			this->label6->AutoSize = true;
-			this->label6->BackColor = System::Drawing::Color::GreenYellow;
-			this->label6->Location = System::Drawing::Point(591, 100);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(13, 13);
-			this->label6->TabIndex = 15;
-			this->label6->Text = L"- ";
-			// 
-			// label7
-			// 
-			this->label7->AutoSize = true;
-			this->label7->BackColor = System::Drawing::Color::GreenYellow;
-			this->label7->Location = System::Drawing::Point(591, 132);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(13, 13);
-			this->label7->TabIndex = 16;
-			this->label7->Text = L"- ";
-			// 
-			// label8
-			// 
-			this->label8->AutoSize = true;
-			this->label8->BackColor = System::Drawing::Color::GreenYellow;
-			this->label8->Location = System::Drawing::Point(594, 169);
-			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(10, 13);
-			this->label8->TabIndex = 17;
-			this->label8->Text = L"-";
-			// 
-			// label9
-			// 
-			this->label9->AutoSize = true;
-			this->label9->BackColor = System::Drawing::Color::GreenYellow;
-			this->label9->Location = System::Drawing::Point(591, 202);
-			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(10, 13);
-			this->label9->TabIndex = 18;
-			this->label9->Text = L"-";
-			// 
-			// label10
-			// 
-			this->label10->AutoSize = true;
-			this->label10->BackColor = System::Drawing::Color::GreenYellow;
-			this->label10->Location = System::Drawing::Point(591, 229);
-			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(10, 13);
-			this->label10->TabIndex = 19;
-			this->label10->Text = L"-";
-			// 
-			// label11
-			// 
-			this->label11->AutoSize = true;
-			this->label11->BackColor = System::Drawing::Color::GreenYellow;
-			this->label11->Location = System::Drawing::Point(591, 260);
-			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(10, 13);
-			this->label11->TabIndex = 20;
-			this->label11->Text = L"-";
-			// 
-			// btnSiguientePag
-			// 
-			this->btnSiguientePag->Location = System::Drawing::Point(652, 62);
-			this->btnSiguientePag->Name = L"btnSiguientePag";
-			this->btnSiguientePag->Size = System::Drawing::Size(110, 23);
-			this->btnSiguientePag->TabIndex = 21;
-			this->btnSiguientePag->Text = L"Siguiente Página";
-			this->btnSiguientePag->UseVisualStyleBackColor = true;
-			this->btnSiguientePag->Click += gcnew System::EventHandler(this, &MyForm::btnSiguientePag_Click);
-			// 
-			// txtDatoNombre
-			// 
-			this->txtDatoNombre->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->txtDatoNombre->Location = System::Drawing::Point(148, 169);
-			this->txtDatoNombre->Name = L"txtDatoNombre";
-			this->txtDatoNombre->Size = System::Drawing::Size(75, 20);
-			this->txtDatoNombre->TabIndex = 22;
-			// 
-			// txtDatoGeneracion
-			// 
-			this->txtDatoGeneracion->BackColor = System::Drawing::SystemColors::InactiveCaption;
-			this->txtDatoGeneracion->Location = System::Drawing::Point(246, 169);
-			this->txtDatoGeneracion->Name = L"txtDatoGeneracion";
-			this->txtDatoGeneracion->Size = System::Drawing::Size(87, 20);
-			this->txtDatoGeneracion->TabIndex = 23;
-			// 
-			// label12
-			// 
-			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(160, 192);
-			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(44, 13);
-			this->label12->TabIndex = 24;
-			this->label12->Text = L"Nombre";
-			// 
-			// label13
-			// 
-			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(259, 192);
-			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(62, 13);
-			this->label13->TabIndex = 25;
-			this->label13->Text = L"Generación";
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(255, 166);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(62, 13);
+			this->label2->TabIndex = 16;
+			this->label2->Text = L"Generación";
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(788, 378);
-			this->Controls->Add(this->label13);
-			this->Controls->Add(this->label12);
-			this->Controls->Add(this->txtDatoGeneracion);
-			this->Controls->Add(this->txtDatoNombre);
-			this->Controls->Add(this->btnSiguientePag);
-			this->Controls->Add(this->label11);
-			this->Controls->Add(this->label10);
-			this->Controls->Add(this->label9);
-			this->Controls->Add(this->label8);
-			this->Controls->Add(this->label7);
-			this->Controls->Add(this->label6);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->lbl1);
-			this->Controls->Add(this->btnGeneración);
-			this->Controls->Add(this->btnNationalNumber);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->btnGeneracionQuick);
+			this->Controls->Add(this->btnGeneracionSelection);
+			this->Controls->Add(this->btnGeneracionShell);
+			this->Controls->Add(this->btnNumeroQuick);
+			this->Controls->Add(this->txtPokedex);
+			this->Controls->Add(this->btnNumeroSelection);
+			this->Controls->Add(this->btnNumeroShell);
 			this->Controls->Add(this->btnAgregarPokemon);
-			this->Controls->Add(this->lblInfo);
 			this->Controls->Add(this->pictureBox3);
-			this->Controls->Add(this->txtDatoNumero);
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->pictureBox1);
 			this->Name = L"MyForm";
 			this->Text = L"Pokedex";
-			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
@@ -395,38 +287,73 @@ namespace Tarea6GuillermoOliveros1096722 {
 
 		}
 #pragma endregion
-		void AgregarPokemon()
+
+
+	private: System::Void btnAgregarPokemon_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		Leer archivo = Leer();
+
+		OrdenPokemon.LeerArchivo("ListadoPokemon.txt");
+
+		std::string Mostrar = "";
+		Mostrar = OrdenPokemon.ImprimirPokemons();
+
+		txtPokedex->Text = gcnew String(Mostrar.c_str());
+	}
+
+
+
+
+
+
+	private: System::Void btnGeneración_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+		txtPokedex->Text = "";
+		
+		Pokemon* data = OrdenPokemon.Almacenar();
+		int Contador = OrdenPokemon.contador();
+
+		OrdenPokemon.SelectionSort(data, Contador, 0);
+
+		for (size_t i = 0; i < Contador; i++)
 		{
-			int pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6, pokemon7, pokemon8;
-
-
+			txtPokedex->Text += data[i].NumeroPoke + ", ";
+			txtPokedex->Text += gcnew String(data[i].NombrePoke.c_str());
+			txtPokedex->Text += ", " + data[i].GeneracionPoke + "\n";
 		}
 		
-	
-	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
-	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void btnNationalNumber_Click(System::Object^ sender, System::EventArgs^ e) {
+	txtPokedex->Text = "";
+
+	Pokemon* data = OrdenPokemon.Almacenar();
+	int Contador = OrdenPokemon.contador();
+
+	OrdenPokemon.ShellSort(data, Contador, 0);
+
+	for (size_t i = 0; i < Contador; i++)
+	{
+		txtPokedex->Text += data[i].NumeroPoke + ", ";
+		txtPokedex->Text += gcnew String(data[i].NombrePoke.c_str());
+		txtPokedex->Text += ", " + data[i].GeneracionPoke + "\n";
 	}
-	private: System::Void btnSiguientePag_Click(System::Object^ sender, System::EventArgs^ e) {
-		
-		MyForm:Form::Hide();
-		Pokedex2:Form::Show();
-	}
-private: System::Void btnAgregarPokemon_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	String^ Pokemon_Nombre = txtDatoNombre->Text;
-	String^ Pokemon_Numero = txtDatoNumero->Text;
-	String^ Pokemon_Generacion = txtDatoGeneracion->Text;
-
-	ToInt16()
-
-	 pokemon1 = gcnew Pokemon(Pokemon_Numero, Pokemon_Generacion, Pokemon_Nombre );
-	
-	txtDatoGeneracion->Clear();
-	txtDatoNumero->Clear();
-	txtDatoNombre->Clear();
-
-	
 }
+private: System::Void btnNumeroQuick_Click(System::Object^ sender, System::EventArgs^ e) {
+	txtPokedex->Text = "";
+	
+	Pokemon* data = OrdenPokemon.Almacenar();
+	int conteo = OrdenPokemon.contador() - 1;
+	OrdenPokemon.InicioQuickSort(data, 0, conteo);
+
+	for (size_t i = 0; i < conteo + 1; i++)
+	{
+		txtPokedex->Text += data[i].NumeroPoke + ", ";
+		txtPokedex->Text += gcnew String(data[i].NombrePoke.c_str());
+		txtPokedex->Text += ", " + data[i].GeneracionPoke + "\n";
+	}
+
+}
+
+
 };
 }

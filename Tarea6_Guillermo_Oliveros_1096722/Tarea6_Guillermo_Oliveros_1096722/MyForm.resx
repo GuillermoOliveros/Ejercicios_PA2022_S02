@@ -121,7 +121,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAyAAAAJYCAIAAAAVFBUnAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAAd0SU1FB9oLDRQINX+OOaIAAHMlSURBVHhe7Z09d1vpkXVnLbs9oZkzbsfMFXfO
+        DAAACwwBP0AiyAAAAAd0SU1FB9oLDRQINX+OOaIAAHMlSURBVHhe7Z09d1vpkXVnLbs9oZkzbsfMFXfO
         nPHkyhl3rlyx05m2U/2JzhVPrnSsd9a8R9iPqksH5L24/MDDS569tttksQAQJKpwcAFC//b1p59ijDF2
         4f9CCOGhJGDFGKMLY02GEMJ2ErBijNGFsSZDCGE7CVgxxujCWJMhhLCdBKwYY3RhrMkQQthOAlaMMbow
         1mQIIWwnASvGGF0YazKEELaTgBVjjC6MNRlCCNtJwIoxRhfGmgwhhO0kYMUYowtjTYYQwnYSsGKM0YWx
@@ -848,4 +848,7 @@
         93CT5goAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="ofdPokemon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

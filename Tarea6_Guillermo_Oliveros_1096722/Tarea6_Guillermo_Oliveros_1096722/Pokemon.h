@@ -3,12 +3,13 @@
 #include <iostream> 
 
 using namespace System;
-ref class Pokemon
+
+ class Pokemon
 {
 public:
-	String^ NombrePoke;
-	String^ GeneracionPoke;
-	String^ NumeroPoke;
+	std::string NombrePoke;
+	int GeneracionPoke;
+	int NumeroPoke;
 };
 
 
